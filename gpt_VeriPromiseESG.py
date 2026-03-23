@@ -51,10 +51,10 @@ BATCH_SIZE = 40               # 每批次處理 40 筆樣本
 # 檔案路徑
 TEST_PATH = r"C:\Users\lubob\Desktop\master thesis\dataset\vpesg4k_test_2000.json"
 TRAIN_PATH = r"C:\Users\lubob\Desktop\master thesis\dataset\vpesg4k_train_2000.json"
-OUT_DIR = r"C:\Users\lubob\Desktop\master thesis\results\GPT5.4\VeriPromise\RAG"
+OUT_DIR = r"C:\Users\lubob\Desktop\master thesis\results\GPT5.4\VeriPromise\NORAG"
 
 # RAG 配置
-USE_RAG = True
+USE_RAG = False
 USE_BALANCED_RAG = True
 NUM_EXAMPLES = 6
 EMBEDDING_MODEL = "intfloat/multilingual-e5-base"
