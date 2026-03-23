@@ -32,9 +32,9 @@ REQUESTS_PER_MINUTE = 300
 BATCH_SIZE = 25
 
 # 檔案路徑 (英文版資料路徑)
-TEST_PATH = r"C:\Users\lubob\Desktop\master thesis\dataset\English_test.json"
-TRAIN_PATH = r"C:\Users\lubob\Desktop\master thesis\dataset\PromiseEval_Trainset_English.json"
-OUT_DIR = r"C:\Users\lubob\Desktop\master thesis\results\Gemma3_4b\ML-Promise\English\NORAG"
+TEST_PATH = r"/home/imntpu/Desktop/Master-Thesis/dataset/English_test.json"
+TRAIN_PATH = r"/home/imntpu/Desktop/Master-Thesis/dataset/PromiseEval_Trainset_English.json"
+OUT_DIR = r"/home/imntpu/Desktop/Master-Thesis/results/Gemma3_27b/ML-Promise/English/NORAG"
 
 # RAG 設定
 USE_RAG = False
