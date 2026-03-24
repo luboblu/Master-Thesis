@@ -5,8 +5,8 @@ from sklearn.metrics import f1_score, classification_report
 
 def run_evaluation():
     # 1. 配置檔案路徑與輸出參數
-    test_dataset_path = '/Users/lubob/Desktop/Master-Thesis/dataset/Chinese_test.json'
-    output_dir = 'Gemma3_4b_ML-Promise_Chinese_RAG_Evaluation_Results'
+    test_dataset_path = 'C:\\Users\\lubob\\Desktop\\master thesis\\dataset\\Chinese_test.json'
+    output_dir = 'C:\\Users\\lubob\\Desktop\\master thesis\\statistic\\Gemma3_4b_ML-Promise_Chinese_NORAG_Evaluation_Results'
     
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -14,10 +14,10 @@ def run_evaluation():
 
     # 定義待評估的檔案
     tasks = {
-        '/Users/lubob/Desktop/Master-Thesis/results/Gemma3_4b/ML-Promise/Chinese/RAG/chinese_gemma4b_promise_status.jsonl': 'promise_status',
-        '/Users/lubob/Desktop/Master-Thesis/results/Gemma3_4b/ML-Promise/Chinese/RAG/chinese_gemma4b_verification_timeline.jsonl': 'verification_timeline',
-        '/Users/lubob/Desktop/Master-Thesis/results/Gemma3_4b/ML-Promise/Chinese/RAG/chinese_gemma4b_evidence_status.jsonl': 'evidence_status',
-        '/Users/lubob/Desktop/Master-Thesis/results/Gemma3_4b/ML-Promise/Chinese/RAG/chinese_gemma4b_evidence_quality.jsonl': 'evidence_quality'
+        'C:\\Users\\lubob\\Desktop\\master thesis\\results\\GPT5.4\\ML-Promise\\English\\NORAG\\gpt-5.4_0shot_promise_status_predictions.jsonl': 'promise_status',
+        'C:\\Users\\lubob\\Desktop\\master thesis\\results\\GPT5.4\\ML-Promise\\English\\NORAG\\gpt-5.4_0shot_verification_timeline_predictions.jsonl': 'verification_timeline',
+        'C:\\Users\\lubob\\Desktop\\master thesis\\results\\GPT5.4\\ML-Promise\\English\\NORAG\\gpt-5.4_0shot_evidence_status_predictions.jsonl': 'evidence_status',
+        'C:\\Users\\lubob\\Desktop\\master thesis\\results\\GPT5.4\\ML-Promise\\English\\NORAG\\gpt-5.4_0shot_evidence_quality_predictions.jsonl': 'evidence_quality'
     }
 
     # 2. 載入測試集 (Ground Truth)
@@ -91,7 +91,7 @@ def run_evaluation():
 
     # 4. 匯出彙整 CSV
     if summary_results:
-        output_csv = os.path.join(output_dir, 'Gemma3_4b_ML-Promise_Chinese_RAG_summary.csv')
+        output_csv = os.path.join(output_dir, 'Gemma3_4b_ML-Promise_Chinese_NORAG_summary.csv')
         keys = ['Task', 'Sample_Count', 'Macro_F1']
         with open(output_csv, 'w', newline='', encoding='utf-8-sig') as f:
             dict_writer = csv.DictWriter(f, fieldnames=keys)

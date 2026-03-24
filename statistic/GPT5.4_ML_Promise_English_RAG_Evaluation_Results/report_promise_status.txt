@@ -1,0 +1,12 @@
+Task: promise_status
+File: C:\Users\lubob\Desktop\master thesis\results\GPT5.4\ML-Promise\English\RAG\gpt-5.4_rag_promise_status_predictions.jsonl
+Macro F1 Score: 0.7698
+========================================
+              precision    recall  f1-score   support
+
+          No       0.63      0.80      0.71       127
+         Yes       0.89      0.78      0.83       273
+
+    accuracy                           0.79       400
+   macro avg       0.76      0.79      0.77       400
+weighted avg       0.81      0.79      0.79       400

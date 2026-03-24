@@ -1,0 +1,12 @@
+Task: evidence_status
+File: C:\Users\lubob\Desktop\master thesis\results\GPT5.4\ML-Promise\English\RAG\gpt-5.4_rag_evidence_status_predictions.jsonl
+Macro F1 Score: 0.7532
+========================================
+              precision    recall  f1-score   support
+
+          No       0.82      0.64      0.72       194
+         Yes       0.72      0.86      0.79       206
+
+    accuracy                           0.76       400
+   macro avg       0.77      0.75      0.75       400
+weighted avg       0.77      0.76      0.75       400

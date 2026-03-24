@@ -1,0 +1,15 @@
+Task: verification_timeline
+File: C:\Users\lubob\Desktop\master thesis\results\GPT5.4\ML-Promise\English\NORAG\gpt-5.4_0shot_verification_timeline_predictions.jsonl
+Macro F1 Score: 0.2933
+========================================
+                   precision    recall  f1-score   support
+
+     2 to 5 years       0.15      0.04      0.06        50
+          Already       0.51      0.47      0.49       143
+Less than 2 years       0.33      0.25      0.29        36
+More than 5 years       0.40      0.05      0.08        44
+              N/A       0.43      0.76      0.55       127
+
+         accuracy                           0.44       400
+        macro avg       0.37      0.31      0.29       400
+     weighted avg       0.41      0.44      0.39       400

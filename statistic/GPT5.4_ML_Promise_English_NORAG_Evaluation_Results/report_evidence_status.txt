@@ -1,0 +1,12 @@
+Task: evidence_status
+File: C:\Users\lubob\Desktop\master thesis\results\GPT5.4\ML-Promise\English\NORAG\gpt-5.4_0shot_evidence_status_predictions.jsonl
+Macro F1 Score: 0.7406
+========================================
+              precision    recall  f1-score   support
+
+          No       0.86      0.58      0.69       194
+         Yes       0.70      0.91      0.79       206
+
+    accuracy                           0.75       400
+   macro avg       0.78      0.74      0.74       400
+weighted avg       0.78      0.75      0.74       400

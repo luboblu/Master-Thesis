@@ -1,0 +1,14 @@
+Task: evidence_quality
+File: C:\Users\lubob\Desktop\master thesis\results\GPT5.4\ML-Promise\English\RAG\gpt-5.4_rag_evidence_quality_predictions.jsonl
+Macro F1 Score: 0.4044
+========================================
+              precision    recall  f1-score   support
+
+       Clear       0.56      0.55      0.55       134
+  Misleading       0.00      0.00      0.00         1
+         N/A       0.89      0.48      0.63       194
+   Not Clear       0.32      0.70      0.44        71
+
+    accuracy                           0.55       400
+   macro avg       0.44      0.44      0.40       400
+weighted avg       0.67      0.55      0.57       400

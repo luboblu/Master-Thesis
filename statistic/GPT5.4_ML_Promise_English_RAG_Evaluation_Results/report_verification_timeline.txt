@@ -1,0 +1,15 @@
+Task: verification_timeline
+File: C:\Users\lubob\Desktop\master thesis\results\GPT5.4\ML-Promise\English\RAG\gpt-5.4_rag_verification_timeline_predictions.jsonl
+Macro F1 Score: 0.4431
+========================================
+                   precision    recall  f1-score   support
+
+     2 to 5 years       0.26      0.20      0.22        50
+          Already       0.54      0.72      0.62       143
+Less than 2 years       0.33      0.44      0.38        36
+More than 5 years       0.46      0.36      0.41        44
+              N/A       0.72      0.50      0.59       127
+
+         accuracy                           0.52       400
+        macro avg       0.46      0.44      0.44       400
+     weighted avg       0.53      0.52      0.51       400

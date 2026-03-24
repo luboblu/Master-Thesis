@@ -1,0 +1,14 @@
+Task: evidence_quality
+File: C:\Users\lubob\Desktop\master thesis\results\Gemma3_4b\ML-Promise\English\RAG\english_ollama_evidence_quality_predictions.jsonl
+Macro F1 Score: 0.2630
+========================================
+              precision    recall  f1-score   support
+
+       Clear       0.54      0.43      0.47       134
+  Misleading       0.00      0.00      0.00         1
+         N/A       0.89      0.16      0.28       194
+   Not Clear       0.19      0.69      0.30        71
+
+    accuracy                           0.34       400
+   macro avg       0.40      0.32      0.26       400
+weighted avg       0.65      0.34      0.35       400

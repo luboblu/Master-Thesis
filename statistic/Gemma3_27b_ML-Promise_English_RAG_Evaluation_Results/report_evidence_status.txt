@@ -1,0 +1,12 @@
+Task: evidence_status
+File: C:\Users\lubob\Desktop\master thesis\results\Gemma3_27b\ML-Promise\English\RAG\english_ollama_evidence_status_predictions.jsonl
+Macro F1 Score: 0.7629
+========================================
+              precision    recall  f1-score   support
+
+          No       0.80      0.69      0.74       194
+         Yes       0.74      0.83      0.79       206
+
+    accuracy                           0.77       400
+   macro avg       0.77      0.76      0.76       400
+weighted avg       0.77      0.77      0.76       400

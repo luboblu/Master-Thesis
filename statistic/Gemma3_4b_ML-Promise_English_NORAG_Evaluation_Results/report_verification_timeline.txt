@@ -1,0 +1,15 @@
+Task: verification_timeline
+File: C:\Users\lubob\Desktop\master thesis\results\Gemma3_4b\ML-Promise\English\NORAG\english_ollama_verification_timeline_predictions.jsonl
+Macro F1 Score: 0.1730
+========================================
+                   precision    recall  f1-score   support
+
+     2 to 5 years       0.30      0.06      0.10        50
+          Already       1.00      0.03      0.05       143
+Less than 2 years       0.15      0.58      0.24        36
+More than 5 years       0.12      0.57      0.19        44
+              N/A       0.73      0.17      0.28       127
+
+         accuracy                           0.19       400
+        macro avg       0.46      0.28      0.17       400
+     weighted avg       0.65      0.19      0.16       400

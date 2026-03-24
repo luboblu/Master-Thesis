@@ -1,0 +1,12 @@
+Task: promise_status
+File: C:\Users\lubob\Desktop\master thesis\results\Gemma3_27b\ML-Promise\English\RAG\english_ollama_promise_status_predictions.jsonl
+Macro F1 Score: 0.7304
+========================================
+              precision    recall  f1-score   support
+
+          No       0.72      0.53      0.61       127
+         Yes       0.80      0.90      0.85       273
+
+    accuracy                           0.79       400
+   macro avg       0.76      0.72      0.73       400
+weighted avg       0.78      0.79      0.77       400
