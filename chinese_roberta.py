@@ -1,3 +1,16 @@
+import os
+import warnings
+# 1. 隱藏 403 Forbidden (背景討論區檢查)
+os.environ["TRANSFORMERS_NO_AD_HOC_PR_CHECK"] = "1"
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
+
+# 2. 隱藏 Python 的 FutureWarning (例如 torch 那些即將棄用的警告)
+warnings.filterwarnings("ignore", category=FutureWarning)
+
+# 3. 隱藏 Transformers 的 MISSING/UNEXPECTED 表格
+# 將日誌等級設為 ERROR，這樣它就只會顯示真的壞掉的東西，不會顯示警告
+from transformers import logging as transformers_logging
+transformers_logging.set_verbosity_error()
 import json
 import asyncio
 import os
@@ -17,14 +30,14 @@ import logging
 
 # ================= 1. 路徑與任務配置 =================
 # 這裡直接導入你之前的 VeriPromiseESG 檔案路徑
-TRAIN_PATH = r"C:\Users\lubob\Desktop\master thesis\dataset\vpesg4k_train_2000.json"
-TEST_PATH = r"C:\Users\lubob\Desktop\master thesis\dataset\vpesg4k_test_2000.json"
-OUTPUT_DIR = r"C:\Users\lubob\Desktop\master thesis\results\Roberta_ESG"
+TRAIN_PATH = r"/home/imntpu/Desktop/Master-Thesis/dataset/vpesg4k_train_2000.json"
+TEST_PATH = r"/home/imntpu/Desktop/Master-Thesis/dataset/vpesg4k_test_2000.json"
+OUTPUT_DIR = r"/home/imntpu/Desktop/Master-Thesis/results/Roberta_ESG"
 
 # 定義四個子任務及其標籤映射 [cite: 182-184]
 TASK_CONFIGS = {
     "promise_status": {"Yes": 0, "No": 1},
-    "evidence_status": {"Yes": 0, "No": 1},
+    "evidence_status": {"Yes": 0, "No": 1, "N/A": 2}, 
     "evidence_quality": {"Clear": 0, "Not Clear": 1, "Misleading": 2, "N/A": 3},
     "verification_timeline": {
         "already": 0, 
@@ -137,7 +150,8 @@ async def run_vpesg_pipeline():
         
         inference_results = []
         for item in test_raw:
-            pred = classifier(item["data"])[0]
+    # 增加 truncation=True，確保長度不會超過 512
+            pred = classifier(item["data"], truncation=True, max_length=512)[0]
             label_idx = int(pred["label"].split("_")[-1])
             inference_results.append({
                 "i_id": item["i_id"],
@@ -163,7 +177,9 @@ def print_gpu_info():
         print(f"\n[系統訊息] 檢測到可用 GPU 數量：{device_count}")
         print(f"[系統訊息] 當前正在使用的 GPU 編號：{current_device}")
         print(f"[系統訊息] GPU 型號：{device_name}")
-        print(f"[系統訊息] 顯存總量：{torch.cuda.get_memory_info(current_device).total / 1024**3:.2f} GB\n")
+        # 使用 get_device_properties 來取得硬體規格資訊
+        device_props = torch.cuda.get_device_properties(current_device)
+        print(f"[系統訊息] 顯存總量：{device_props.total_memory / 1024**3:.2f} GB\n")
     else:
         print("\n[系統訊息] 未檢測到可用 GPU，將切換至 CPU 模式執行。\n")
 if __name__ == "__main__":
