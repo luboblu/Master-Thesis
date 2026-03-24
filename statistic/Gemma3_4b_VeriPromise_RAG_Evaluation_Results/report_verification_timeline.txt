@@ -1,0 +1,16 @@
+Task: verification_timeline
+Source: vpesg_verification_timeline_results.jsonl
+Sample Size: 2000
+Macro F1 Score: 0.2516
+========================================
+                       precision    recall  f1-score   support
+
+                  N/A       0.83      0.06      0.12       374
+              already       0.46      0.43      0.45       737
+between_2_and_5_years       0.38      0.25      0.30       489
+  longer_than_5_years       0.31      0.31      0.31       363
+       within_2_years       0.05      0.73      0.08        37
+
+             accuracy                           0.30      2000
+            macro avg       0.40      0.36      0.25      2000
+         weighted avg       0.47      0.30      0.32      2000

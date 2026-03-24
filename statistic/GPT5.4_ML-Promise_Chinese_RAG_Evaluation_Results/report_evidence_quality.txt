@@ -1,0 +1,14 @@
+Task: evidence_quality
+Source: gpt-5.4_rag_balanced_evidence_quality_predictions.jsonl
+Sample Size: 489
+Macro F1 Score: 0.3608
+========================================
+              precision    recall  f1-score   support
+
+       Clear       0.00      0.00      0.00        73
+         N/A       0.90      0.75      0.82       370
+   Not Clear       0.17      0.63      0.26        46
+
+    accuracy                           0.63       489
+   macro avg       0.36      0.46      0.36       489
+weighted avg       0.70      0.63      0.64       489

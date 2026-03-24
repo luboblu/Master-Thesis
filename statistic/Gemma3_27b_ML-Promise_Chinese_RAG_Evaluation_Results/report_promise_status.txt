@@ -1,0 +1,13 @@
+Task: promise_status
+Source: chinese_ollama_promise_status_predictions.jsonl
+Sample Size: 489
+Macro F1 Score: 0.9652
+========================================
+              precision    recall  f1-score   support
+
+          No       0.96      0.97      0.97       252
+         Yes       0.97      0.96      0.96       237
+
+    accuracy                           0.97       489
+   macro avg       0.97      0.97      0.97       489
+weighted avg       0.97      0.97      0.97       489

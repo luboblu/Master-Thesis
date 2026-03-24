@@ -1,0 +1,16 @@
+Task: verification_timeline
+Source: chinese_ollama_verification_timeline_predictions.jsonl
+Sample Size: 489
+Macro F1 Score: 0.4286
+========================================
+                   precision    recall  f1-score   support
+
+     2 to 5 years       0.00      0.00      0.00        11
+          Already       0.00      0.00      0.00         0
+Less than 2 years       0.57      0.67      0.62       101
+More than 5 years       0.54      0.85      0.66        39
+              N/A       0.93      0.81      0.87       338
+
+         accuracy                           0.77       489
+        macro avg       0.41      0.47      0.43       489
+     weighted avg       0.80      0.77      0.78       489

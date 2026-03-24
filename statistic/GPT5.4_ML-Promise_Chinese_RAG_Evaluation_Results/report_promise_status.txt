@@ -1,0 +1,13 @@
+Task: promise_status
+Source: gpt-5.4_rag_balanced_promise_status_predictions.jsonl
+Sample Size: 489
+Macro F1 Score: 0.8539
+========================================
+              precision    recall  f1-score   support
+
+          No       0.80      0.97      0.87       252
+         Yes       0.96      0.74      0.83       237
+
+    accuracy                           0.86       489
+   macro avg       0.88      0.85      0.85       489
+weighted avg       0.87      0.86      0.85       489

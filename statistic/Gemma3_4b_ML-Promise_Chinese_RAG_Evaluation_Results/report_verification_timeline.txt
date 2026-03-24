@@ -1,0 +1,15 @@
+Task: verification_timeline
+Source: chinese_gemma4b_verification_timeline.jsonl
+Sample Size: 489
+Macro F1 Score: 0.4814
+========================================
+                   precision    recall  f1-score   support
+
+     2 to 5 years       0.00      0.00      0.00        11
+Less than 2 years       0.48      0.79      0.60       101
+More than 5 years       0.42      0.56      0.48        39
+              N/A       0.96      0.76      0.85       338
+
+         accuracy                           0.73       489
+        macro avg       0.46      0.53      0.48       489
+     weighted avg       0.80      0.73      0.75       489

@@ -1,0 +1,15 @@
+Task: evidence_quality
+Source: chinese_gemma4b_evidence_quality.jsonl
+Sample Size: 489
+Macro F1 Score: 0.4110
+========================================
+                        precision    recall  f1-score   support
+
+                 Clear       0.43      0.48      0.45        73
+                   N/A       0.98      0.75      0.85       370
+             Not Clear       0.24      0.63      0.35        46
+Potentially Misleading       0.00      0.00      0.00         0
+
+              accuracy                           0.70       489
+             macro avg       0.41      0.46      0.41       489
+          weighted avg       0.82      0.70      0.74       489

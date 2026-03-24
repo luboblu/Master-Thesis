@@ -1,0 +1,13 @@
+Task: evidence_status
+Source: chinese_ollama_evidence_status_predictions.jsonl
+Sample Size: 489
+Macro F1 Score: 0.7753
+========================================
+              precision    recall  f1-score   support
+
+          No       0.88      0.84      0.86       341
+         Yes       0.66      0.72      0.69       148
+
+    accuracy                           0.81       489
+   macro avg       0.77      0.78      0.78       489
+weighted avg       0.81      0.81      0.81       489

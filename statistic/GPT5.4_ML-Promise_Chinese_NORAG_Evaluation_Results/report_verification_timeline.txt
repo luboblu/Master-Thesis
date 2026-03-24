@@ -1,0 +1,16 @@
+Task: verification_timeline
+Source: gpt-5.4_0shot_verification_timeline_predictions.jsonl
+Sample Size: 489
+Macro F1 Score: 0.2626
+========================================
+                   precision    recall  f1-score   support
+
+     2 to 5 years       0.00      0.00      0.00        11
+          Already       0.00      0.00      0.00         0
+Less than 2 years       0.67      0.06      0.11       101
+More than 5 years       0.69      0.23      0.35        39
+              N/A       0.83      0.88      0.86       338
+
+         accuracy                           0.64       489
+        macro avg       0.44      0.23      0.26       489
+     weighted avg       0.77      0.64      0.64       489

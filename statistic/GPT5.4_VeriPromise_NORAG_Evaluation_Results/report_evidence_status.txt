@@ -1,0 +1,14 @@
+Task: evidence_status
+Source: vpesg_evidence_status_gpt_results.jsonl
+Sample Size: 2000
+Macro F1 Score: 0.3827
+========================================
+              precision    recall  f1-score   support
+
+         N/A       0.00      0.00      0.00       374
+          No       0.45      0.28      0.34       288
+         Yes       0.70      0.95      0.80      1338
+
+    accuracy                           0.68      2000
+   macro avg       0.38      0.41      0.38      2000
+weighted avg       0.53      0.68      0.59      2000

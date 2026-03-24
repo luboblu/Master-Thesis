@@ -1,0 +1,14 @@
+Task: evidence_quality
+Source: chinese_ollama_evidence_quality_predictions.jsonl
+Sample Size: 489
+Macro F1 Score: 0.4370
+========================================
+              precision    recall  f1-score   support
+
+       Clear       0.11      0.07      0.08        73
+         N/A       0.99      0.72      0.83       370
+   Not Clear       0.25      0.93      0.39        46
+
+    accuracy                           0.64       489
+   macro avg       0.45      0.57      0.44       489
+weighted avg       0.79      0.64      0.68       489

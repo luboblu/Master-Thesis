@@ -1,0 +1,13 @@
+Task: evidence_status
+Source: gpt-5.4_0shot_evidence_status_predictions.jsonl
+Sample Size: 489
+Macro F1 Score: 0.5537
+========================================
+              precision    recall  f1-score   support
+
+          No       0.73      0.93      0.82       341
+         Yes       0.56      0.20      0.29       148
+
+    accuracy                           0.71       489
+   macro avg       0.64      0.56      0.55       489
+weighted avg       0.68      0.71      0.66       489

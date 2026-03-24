@@ -1,0 +1,14 @@
+Task: evidence_status
+Source: vpesg_evidence_status_results.jsonl
+Sample Size: 2000
+Macro F1 Score: 0.3647
+========================================
+              precision    recall  f1-score   support
+
+         N/A       0.00      0.00      0.00       374
+          No       0.41      0.22      0.28       288
+         Yes       0.70      0.97      0.81      1338
+
+    accuracy                           0.68      2000
+   macro avg       0.37      0.39      0.36      2000
+weighted avg       0.53      0.68      0.58      2000

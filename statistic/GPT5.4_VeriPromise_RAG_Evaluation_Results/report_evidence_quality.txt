@@ -1,0 +1,15 @@
+Task: evidence_quality
+Source: vpesg_evidence_quality_gpt_results.jsonl
+Sample Size: 2000
+Macro F1 Score: 0.3495
+========================================
+              precision    recall  f1-score   support
+
+       Clear       0.69      0.79      0.73      1108
+  Misleading       0.00      0.00      0.00         2
+         N/A       0.61      0.28      0.38       662
+   Not Clear       0.22      0.40      0.28       228
+
+    accuracy                           0.57      2000
+   macro avg       0.38      0.37      0.35      2000
+weighted avg       0.61      0.57      0.56      2000

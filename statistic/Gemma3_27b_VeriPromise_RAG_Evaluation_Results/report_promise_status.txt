@@ -1,0 +1,13 @@
+Task: promise_status
+Source: vpesg_promise_status_results.jsonl
+Sample Size: 2000
+Macro F1 Score: 0.6486
+========================================
+              precision    recall  f1-score   support
+
+          No       0.58      0.30      0.40       374
+         Yes       0.86      0.95      0.90      1626
+
+    accuracy                           0.83      2000
+   macro avg       0.72      0.63      0.65      2000
+weighted avg       0.80      0.83      0.81      2000
