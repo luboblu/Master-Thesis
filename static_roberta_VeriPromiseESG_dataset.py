@@ -4,19 +4,15 @@ import csv
 from sklearn.metrics import f1_score, classification_report
 
 def run_evaluation():
-    # --- 路徑與參數配置 ---
     # 測試集路徑
     test_dataset_path = 'C:\\Users\\lubob\\Desktop\\master thesis\\dataset\\vpesg4k_test_2000.json'
     
-    # 輸出資料夾名稱
+    # 輸出目錄
     output_dir = 'Roberta_VeriPromiseESG_Evaluation_Results'
-    
-    # 建立輸出資料夾
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-        print(f"已建立輸出資料夾：{output_dir}")
 
-    # 定義待評估的檔案及其對應的標籤欄位
+    # 定義檔案與對應標籤
     tasks = {
         'C:\\Users\\lubob\\Desktop\\master thesis\\results\\Roberta_ESG\\vpesg_promise_status_results.jsonl': 'promise_status',
         'C:\\Users\\lubob\\Desktop\\master thesis\\results\\Roberta_ESG\\vpesg_verification_timeline_results.jsonl': 'verification_timeline',
@@ -25,36 +21,34 @@ def run_evaluation():
     }
 
     # 1. 載入測試集 (Ground Truth)
-    try:
-        with open(test_dataset_path, 'r', encoding='utf-8') as f:
-            gt_list = json.load(f)
-    except FileNotFoundError:
-        print(f"錯誤：無法讀取測試集檔案 {test_dataset_path}")
-        return
-
+    with open(test_dataset_path, 'r', encoding='utf-8') as f:
+        gt_list = json.load(f)
     gt_data = {str(item['i_id']): item for item in gt_list}
+    
     summary_results = []
 
-    # 2. 執行各項任務評估
+    # 2. 執行評估
     for filepath, label_key in tasks.items():
+        if not os.path.exists(filepath):
+            continue
+
         y_true = []
         y_pred = []
         
-        if not os.path.exists(filepath):
-            print(f"警告：找不到檔案 {filepath}，已跳過該項評估。")
-            continue
-
-        filename = os.path.basename(filepath)
-        
         with open(filepath, 'r', encoding='utf-8') as f:
             for line in f:
-                if not line.strip():
-                    continue
+                line = line.strip()
+                if not line: continue
                 try:
                     record = json.loads(line)
                     i_id = str(record.get('i_id'))
-                    # 提取模型預測值
-                    prediction = record.get('pred', {}).get(label_key)
+                    pred_data = record.get('pred')
+                    
+                    # 修正：判斷 pred_data 是字典還是字串
+                    if isinstance(pred_data, dict):
+                        prediction = pred_data.get(label_key)
+                    else:
+                        prediction = pred_data
                     
                     if i_id in gt_data and prediction is not None:
                         true_label = str(gt_data[i_id].get(label_key))
@@ -64,42 +58,28 @@ def run_evaluation():
                     continue
         
         if y_true:
-            # 計算 Macro F1 分數
             macro_f1 = f1_score(y_true, y_pred, average='macro')
-            report = classification_report(y_true, y_pred)
+            report_text = classification_report(y_true, y_pred)
             
-            # 儲存摘要數據
             summary_results.append({
                 'Task': label_key,
                 'Sample_Size': len(y_true),
                 'Macro_F1': round(macro_f1, 4)
             })
 
-            # 產生各別任務的詳細報告文字檔，存於指定資料夾
-            report_filename = os.path.join(output_dir, f"report_{label_key}.txt")
-            with open(report_filename, 'w', encoding='utf-8') as rf:
-                rf.write(f"Task: {label_key}\nSource: {filename}\n")
-                rf.write(f"Sample Size: {len(y_true)}\n")
-                rf.write(f"Macro F1 Score: {macro_f1:.4f}\n")
-                rf.write("=" * 40 + "\n")
-                rf.write(report)
-            
-            print(f"已完成 {label_key} 評估，詳細報告存至：{report_filename}")
+            # 儲存詳細報告
+            report_path = os.path.join(output_dir, f"report_{label_key}.txt")
+            with open(report_path, 'w', encoding='utf-8') as rf:
+                rf.write(f"Task: {label_key}\nMacro F1: {macro_f1:.4f}\n\n{report_text}")
 
-    # 3. 匯出彙整結果至 CSV 檔案，存於指定資料夾
+    # 3. 匯出彙整表
     if summary_results:
         output_csv = os.path.join(output_dir, 'Roberta_VeriPromiseESG_evaluation_summary.csv')
-        keys = ['Task', 'Sample_Size', 'Macro_F1']
-        
         with open(output_csv, 'w', newline='', encoding='utf-8-sig') as f:
-            dict_writer = csv.DictWriter(f, fieldnames=keys)
-            dict_writer.writeheader()
-            dict_writer.writerows(summary_results)
-        
-        print(f"\n所有任務評估作業已完成。")
-        print(f"彙整總表路徑：{output_csv}")
-    else:
-        print("未產生任何評估結果，請確認檔案路徑與內容是否正確。")
+            writer = csv.DictWriter(f, fieldnames=['Task', 'Sample_Size', 'Macro_F1'])
+            writer.writeheader()
+            writer.writerows(summary_results)
+        print(f"評估完成，彙整表已存至：{output_csv}")
 
 if __name__ == "__main__":
     run_evaluation()

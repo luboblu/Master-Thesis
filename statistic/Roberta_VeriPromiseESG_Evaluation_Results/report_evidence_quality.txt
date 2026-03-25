@@ -1,0 +1,13 @@
+Task: evidence_quality
+Macro F1: 0.4410
+
+              precision    recall  f1-score   support
+
+       Clear       0.77      0.82      0.80      1108
+  Misleading       0.00      0.00      0.00         2
+         N/A       0.67      0.66      0.66       662
+   Not Clear       0.36      0.26      0.30       228
+
+    accuracy                           0.70      2000
+   macro avg       0.45      0.44      0.44      2000
+weighted avg       0.69      0.70      0.70      2000

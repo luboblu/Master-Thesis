@@ -1,0 +1,14 @@
+Task: verification_timeline
+Macro F1: 0.5528
+
+                       precision    recall  f1-score   support
+
+                  N/A       0.72      0.70      0.71       374
+              already       0.62      0.68      0.65       737
+between_2_and_5_years       0.60      0.60      0.60       489
+  longer_than_5_years       0.69      0.64      0.67       363
+       within_2_years       0.38      0.08      0.13        37
+
+             accuracy                           0.65      2000
+            macro avg       0.60      0.54      0.55      2000
+         weighted avg       0.64      0.65      0.64      2000
