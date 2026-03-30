@@ -19,9 +19,9 @@ from transformers import (
 from datasets import Dataset
 
 # ================= 1. 路徑與任務配置 =================
-TRAIN_PATH = r"/home/imntpu/Desktop/Master-Thesis/dataset/vpesg4k_train_2000.json"
-TEST_PATH  = r"/home/imntpu/Desktop/Master-Thesis/dataset/vpesg4k_test_2000.json"
-OUTPUT_DIR = r"/home/imntpu/Desktop/Master-Thesis/results/Roberta_ESG_Baseline"
+TRAIN_PATH = r"C:\Users\lubob\Desktop\master thesis\dataset\vpesg4k_train_2000.json"
+TEST_PATH  = r"C:\Users\lubob\Desktop\master thesis\dataset\vpesg4k_test_2000.json"
+OUTPUT_DIR = r"C:\Users\lubob\Desktop\master thesis\results\Roberta_ESG_Baseline"
 
 TASK_CONFIGS = {
     "promise_status":        {"Yes": 0, "No": 1},

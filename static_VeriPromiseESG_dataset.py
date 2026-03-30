@@ -9,8 +9,8 @@ def run_evaluation():
     test_dataset_path = 'C:\\Users\\lubob\\Desktop\\master thesis\\dataset\\vpesg4k_test_2000.json'
     
     # 輸出資料夾名稱
-    output_dir = 'Roberta_VeriPromiseESG_Evaluation_Results'
-    
+    output_dir = 'statistic\\Roberta_VeriPromiseESG_Evaluation_Results'
+
     # 建立輸出資料夾
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -18,10 +18,10 @@ def run_evaluation():
 
     # 定義待評估的檔案及其對應的標籤欄位
     tasks = {
-        'C:\\Users\\lubob\\Desktop\\master thesis\\results\\Roberta_ESG\\vpesg_promise_status_results.jsonl': 'promise_status',
-        'C:\\Users\\lubob\\Desktop\\master thesis\\results\\Roberta_ESG\\vpesg_verification_timeline_results.jsonl': 'verification_timeline',
-        'C:\\Users\\lubob\\Desktop\\master thesis\\results\\Roberta_ESG\\vpesg_evidence_status_results.jsonl': 'evidence_status',
-        'C:\\Users\\lubob\\Desktop\\master thesis\\results\\Roberta_ESG\\vpesg_evidence_quality_results.jsonl': 'evidence_quality'
+        'C:\\Users\\lubob\\Desktop\\master thesis\\results\\Roberta_ESG_Baseline\\vpesg_promise_status_results.jsonl': 'promise_status',
+        'C:\\Users\\lubob\\Desktop\\master thesis\\results\\Roberta_ESG_Baseline\\vpesg_verification_timeline_results.jsonl': 'verification_timeline',
+        'C:\\Users\\lubob\\Desktop\\master thesis\\results\\Roberta_ESG_Baseline\\vpesg_evidence_status_results.jsonl': 'evidence_status',
+        'C:\\Users\\lubob\\Desktop\\master thesis\\results\\Roberta_ESG_Baseline\\vpesg_evidence_quality_results.jsonl': 'evidence_quality'
     }
 
     # 1. 載入測試集 (Ground Truth)
@@ -53,8 +53,9 @@ def run_evaluation():
                 try:
                     record = json.loads(line)
                     i_id = str(record.get('i_id'))
-                    # 提取模型預測值
-                    prediction = record.get('pred', {}).get(label_key)
+                    # 提取模型預測值（baseline 存的是字串，不是 dict）
+                    pred_raw = record.get('pred')
+                    prediction = pred_raw if isinstance(pred_raw, str) else pred_raw.get(label_key) if isinstance(pred_raw, dict) else None
                     
                     if i_id in gt_data and prediction is not None:
                         true_label = str(gt_data[i_id].get(label_key))

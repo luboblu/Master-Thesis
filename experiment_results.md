@@ -38,7 +38,8 @@
 
 | Model | Setting | Promise Status | Evidence Status | Evidence Quality | Verification Timeline | **Avg** |
 |-------|---------|---------------:|----------------:|-----------------:|----------------------:|--------:|
-| Chinese RoBERTa | Fine-tuned (baseline) | 0.7936 | 0.6535 | 0.4410 | 0.5528 | **0.6102** |
+| Chinese RoBERTa | Fine-tuned **(baseline)** | 0.8177 | 0.6802 | 0.4416 | 0.5909 | **0.6326** |
+| Chinese RoBERTa | Fine-tuned **(資料擴增)** | 0.7936 | 0.6535 | 0.4410 | 0.5528 | **0.6102** |
 | GPT-5.4 | RAG | 0.7190 | 0.3841 | 0.3495 | 0.4012 | **0.4635** |
 | Gemma3 27b | RAG | 0.6486 | 0.4707 | 0.3543 | 0.3809 | **0.4636** |
 | GPT-5.4 | NORAG | 0.7012 | 0.3827 | 0.2506 | 0.3693 | **0.4260** |
